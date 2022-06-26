@@ -229,7 +229,9 @@ namespace CartesianExplosion
             transactions.AddRange(payoutTransactions);
             transactions.AddRange(payinTransactions);
 
-            var final = transactions.Distinct().ToList();
+            var final = transactions
+                .Distinct()
+                .ToList();
         }
 
         [Benchmark]
@@ -264,7 +266,9 @@ namespace CartesianExplosion
             transactions.AddRange(payoutTransactions);
             transactions.AddRange(payinTransactions);
 
-            var final = transactions.Distinct().ToList();
+            var final = transactions
+                .Distinct()
+                .ToList();
         }
 
         [Benchmark]
@@ -288,7 +292,10 @@ namespace CartesianExplosion
                 .SelectMany(x => x.payins)
                 .Select(x => x.Transaction);
 
-            var final = await allIn.Concat(allOut).Distinct().ToListAsync();
+            var final = await allIn
+                .Concat(allOut)
+                .Distinct()
+                .ToListAsync();
         }
     }
 
